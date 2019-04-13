@@ -9,7 +9,7 @@ using Android.Widget;
 
 namespace com.givy11.sort.android
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
 
@@ -18,11 +18,11 @@ namespace com.givy11.sort.android
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
-
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+           
+            var webview = FindViewById<Android.Webkit.WebView>(Resource.Id.webView1);
+            webview.Settings.JavaScriptEnabled = true;
+            webview.SetWebViewClient(new HelloWebViewClient());
+            webview.LoadUrl("http://xn--80abc3calbgl7f.xn--p1ai/");
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -40,13 +40,6 @@ namespace com.givy11.sort.android
             }
 
             return base.OnOptionsItemSelected(item);
-        }
-
-        private void FabOnClick(object sender, EventArgs eventArgs)
-        {
-            View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
         }
 	}
 }
