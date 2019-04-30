@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.givy11.sort.android" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.0" package="com.givy11.sort.android" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="17" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:allowBackup="true" android:icon="@mipmap/ic_launcher2" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:label="Выбор Сортов"></application>
+	<application android:allowBackup="true" android:icon="@mipmap/ic_launcher2" android:roundIcon="@mipmap/ic_launcher2" android:supportsRtl="true" android:theme="@style/AppTheme" android:label="Выбор Сортов"></application>
 </manifest>

@@ -12,17 +12,16 @@ namespace com.givy11.sort.android
     [Activity(Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-
+        Android.Webkit.WebView webView;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-           
-            var webview = FindViewById<Android.Webkit.WebView>(Resource.Id.webView1);
-            webview.Settings.JavaScriptEnabled = true;
-            webview.SetWebViewClient(new HelloWebViewClient());
-            webview.LoadUrl("http://xn--80abc3calbgl7f.xn--p1ai/");
+            webView = FindViewById<Android.Webkit.WebView>(Resource.Id.webView1);
+            webView.Settings.JavaScriptEnabled = true;
+            webView.SetWebViewClient(new HelloWebViewClient());
+            webView.LoadUrl("http://xn--80abc3calbgl7f.xn--p1ai/");
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -41,6 +40,14 @@ namespace com.givy11.sort.android
 
             return base.OnOptionsItemSelected(item);
         }
-	}
+
+        public override void OnBackPressed()
+        {
+            if (webView.CanGoBack())
+            {
+                webView.GoBack();
+            }
+        }
+    }
 }
 
